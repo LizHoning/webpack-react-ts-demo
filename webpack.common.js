@@ -17,7 +17,7 @@ module.exports = {
 				exclude: /node_modules/,
 			},
 			{
-				test: /.css$/,
+				test: /\.css$/,
 				use: [
 					{ loader: "style-loader" },
 					{
@@ -30,6 +30,24 @@ module.exports = {
 							},
 						},
 					},
+				],
+			},
+
+			{
+				test: /\.s[ac]ss$/,
+				use: [
+					{ loader: "style-loader" },
+					{
+						loader: "css-loader",
+						options: {
+							modules: {
+								mode: "local",
+								exportLocalsConvention: "dashes",
+								localIdentName: "[local]--[hash:base64]",
+							},
+						},
+					},
+					{ loader: "sass-loader" },
 				],
 			},
 		],

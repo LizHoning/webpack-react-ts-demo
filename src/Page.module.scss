@@ -1,0 +1,15 @@
+.page-title {
+	color: red;
+}
+
+:global(p) {
+	color: green;
+}
+
+.items {
+	color: grey;
+
+	.first-item {
+		color: blue;
+	}
+}
