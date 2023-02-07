@@ -2,7 +2,12 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-	entry: "./src/index.tsx",
+	entry: path.resolve(__dirname, "src/index.tsx"),
+	output: {
+		filename: "[name].[contenthash].js",
+		path: path.resolve(__dirname, "dist"),
+		assetModuleFilename: "assets/[hash].[ext]",
+	},
 	devtool: "inline-source-map",
 	module: {
 		rules: [
@@ -16,52 +21,20 @@ module.exports = {
 				use: "ts-loader",
 				exclude: /node_modules/,
 			},
-			{
-				test: /\.css$/,
-				use: [
-					{ loader: "style-loader" },
-					{
-						loader: "css-loader",
-						options: {
-							modules: {
-								mode: "local",
-								exportLocalsConvention: "dashes",
-								localIdentName: "[local]--[hash:base64]",
-							},
-						},
-					},
-				],
-			},
 
 			{
-				test: /\.s[ac]ss$/,
-				use: [
-					{ loader: "style-loader" },
-					{
-						loader: "css-loader",
-						options: {
-							modules: {
-								mode: "local",
-								exportLocalsConvention: "dashes",
-								localIdentName: "[local]--[hash:base64]",
-							},
-						},
-					},
-					{ loader: "sass-loader" },
-				],
+				test: /\.(png|jpg|jpeg|gif|svg)$/,
+				type: "asset/resource",
 			},
 		],
 	},
 	resolve: {
-		extensions: [".tsx", ".ts", ".js"],
-	},
-	output: {
-		path: path.join(__dirname, "/dist"),
-		filename: "bundle.js",
+		extensions: [".tsx", ".ts", ".js", ".jsx"],
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
-			template: "./index.html",
+			template: "./src/index.html",
+			filename: "index.html",
 		}),
 	],
 };

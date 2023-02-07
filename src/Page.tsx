@@ -1,5 +1,6 @@
 import React from "react";
 import style from "./Page.module.scss";
+import boxes from "./assets/images/boxes.png";
 
 const Page = () => {
 	return (
@@ -10,6 +11,11 @@ const Page = () => {
 				Some items
 				<div className={style.firstItem}>Line 1</div>
 				<div>Line 2</div>
+				<img src={boxes} />
+				<div className={style.box1}></div>
+				<div className={style.box2}></div>
+				<div className={style.box3}></div>
+				<div className={style.icon}>face</div>
 			</div>
 		</div>
 	);

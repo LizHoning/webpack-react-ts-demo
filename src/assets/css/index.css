@@ -1,0 +1,9 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+/* Removed by PurgeCssPlugin*/
+.unused {
+	color: green;
+}
