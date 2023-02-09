@@ -27,6 +27,14 @@ module.exports = merge(commonConfig, {
 							},
 						},
 					},
+					{
+						loader: "postcss-loader",
+						options: {
+							postcssOptions: {
+								plugins: [["postcss-preset-env", {}]],
+							},
+						},
+					},
 				],
 			},
 			{
@@ -40,6 +48,14 @@ module.exports = merge(commonConfig, {
 								mode: "local",
 								exportLocalsConvention: "dashes",
 								localIdentName: "[local]--[hash:base64]",
+							},
+						},
+					},
+					{
+						loader: "postcss-loader",
+						options: {
+							postcssOptions: {
+								plugins: [["postcss-preset-env", {}]],
 							},
 						},
 					},
