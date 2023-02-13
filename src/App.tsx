@@ -1,12 +1,12 @@
 import React from "react";
-import Page from "./Page";
+import TodoPage from "./modules/todo/TodoPage";
 
 function App() {
-	return (
-		<div className="App">
-			<Page />
-		</div>
-	);
+    return (
+        <div className="App">
+            <TodoPage />
+        </div>
+    );
 }
 
 export default App;

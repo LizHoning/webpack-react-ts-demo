@@ -1,0 +1,57 @@
+@import "../../assets/css/_variables.scss";
+
+@font-face {
+    font-family: "Material Icons";
+    font-style: normal;
+    font-weight: 400;
+    src: local("Material Icons"), local("MaterialIcons-Regular"),
+        url(../../assets/fonts/MaterialIcons-Regular.ttf) format("truetype");
+}
+
+.page-title {
+    color: red;
+
+    @media (min-width: 40rem) {
+        font-size: 125%;
+    }
+}
+
+:global(p) {
+    color: green;
+}
+
+.box {
+    height: 50px;
+    width: 200px;
+}
+
+.items {
+    color: $primary-colour;
+
+    .first-item {
+        color: blue;
+    }
+
+    .box-1 {
+        @extend .box;
+        background-color: $primary-colour;
+    }
+
+    .box-2 {
+        @extend .box;
+        background-color: $secondary-colour;
+    }
+
+    .box-3 {
+        @extend .box;
+        background-color: $tertiary-colour;
+
+        &:hover {
+            background-color: $primary-colour;
+        }
+    }
+}
+
+.icon {
+    font-family: "Material Icons";
+}
